@@ -7131,30 +7131,25 @@
     "testPass": 0,
     "testResult": [
         {
-            "className": "DapiHaoXinQing",
-            "methodName": "test_00001_登录",
-            "description": "测试登录",
-            "spendTime": "0.106 s",
+            "className": "_FailedTest",
+            "methodName": "dapi_hao_xin_qing",
+            "description": null,
+            "spendTime": "0.00398 s",
             "status": "失败",
             "log": [
                 "",
                 "Traceback (most recent call last):\n",
                 "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/site-packages/ddt.py\", line 187, in wrapper\n    return func(self, *args, **kwargs)\n",
-                "  File \"/Users/liweichao/workspace/interface_test/interface/common/common.py\", line 148, in wrapper\n    return func(self,status_code,res,*args,**kwargs)\n",
-                "  File \"/Users/liweichao/workspace/interface_test/interface/common/common.py\", line 171, in wrapper\n    return func(self,status_code,res,*args,assert_res=assert_res,**kwargs)\n",
-                "  File \"/Users/liweichao/workspace/interface_test/interface/test_case/cn/haoxinqing/dapi_hao_xin_qing.py\", line 32, in test\n    self.assertEqual(True,a.assert_res,a.assert_msg)\n",
-                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
-                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 822, in _baseAssertEqual\n    raise self.failureException(msg)\n",
-                "AssertionError: True != False : 操作符:=,断言key:status_code,期望值:200,实际值:404\n"
+                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/loader.py\", line 34, in testFailure\n    raise self._exception\n",
+                "ImportError: Failed to import test module: dapi_hao_xin_qing\nTraceback (most recent call last):\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/loader.py\", line 428, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/loader.py\", line 369, in _get_module_from_name\n    __import__(name)\n  File \"/Users/liweichao/workspace/interface_test/interface/test_case/cn/haoxinqing/dapi_hao_xin_qing.py\", line 13, in <module>\n    class DapiHaoXinQing(unittest.TestCase):\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/site-packages/ddt.py\", line 405, in wrapper\n    process_file_data(cls, name, func, file_attr, model)\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/site-packages/ddt.py\", line 225, in process_file_data\n    data_file_path = os.path.join(os.path.dirname(cls_path), file_attr)\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/posixpath.py\", line 94, in join\n    genericpath._check_arg_types('join', a, *p)\n  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/genericpath.py\", line 149, in _check_arg_types\n    (funcname, s.__class__.__name__)) from None\nTypeError: join() argument must be str or bytes, not 'NoneType'\n\n"
             ]
         }
     ],
     "testName": "自动化测试报告",
     "testAll": 1,
     "testFail": 1,
-    "beginTime": "2020-08-14 16:12:19",
+    "beginTime": "2020-08-15 23:07:19",
     "totalTime": "0s",
     "testSkip": 0,
     "testError": 0

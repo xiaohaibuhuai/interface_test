@@ -8,7 +8,7 @@ from common.common import request
 
 model = __name__
 if model is '__main__':
-    model = 'hao_xin_qing'
+    model = 'dapi_hao_xin_qing'
 @ddt(model=ReadConfig.getConfig().get_model("model"))
 class DapiHaoXinQing(unittest.TestCase):
 

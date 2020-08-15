@@ -130,7 +130,7 @@ def request():
         def wrapper(self,*args,**kwargs):
             try:
                 kwargs = args[0].to_dict()
-                m = kwargs.get(config.getConfig().request_method,config.getConfig().get_http_method())
+                m = kwargs.get(config.getConfig().request_method,config.getConfig().get_http_method(self.model))
                 req = HttpUtils(self.model)
                 req.url = kwargs.get('api')
                 self.log.info("api:%s"%(req.url))

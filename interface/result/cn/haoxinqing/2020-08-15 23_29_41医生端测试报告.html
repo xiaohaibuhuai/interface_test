@@ -7131,10 +7131,10 @@
     "testPass": 0,
     "testResult": [
         {
-            "className": "PapiHaoXinQing",
-            "methodName": "test_00002_快照",
+            "className": "DapiHaoXinQing",
+            "methodName": "test_00001_登录",
             "description": "测试登录",
-            "spendTime": "60.1 s",
+            "spendTime": "0.0966 s",
             "status": "失败",
             "log": [
                 "",
@@ -7143,15 +7143,19 @@
                 "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 605, in run\n    testMethod()\n",
                 "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/site-packages/ddt.py\", line 187, in wrapper\n    return func(self, *args, **kwargs)\n",
                 "  File \"/Users/liweichao/workspace/interface_test/interface/common/common.py\", line 148, in wrapper\n    return func(self,status_code,res,*args,**kwargs)\n",
-                "UnboundLocalError: local variable 'status_code' referenced before assignment\n"
+                "  File \"/Users/liweichao/workspace/interface_test/interface/common/common.py\", line 171, in wrapper\n    return func(self,status_code,res,*args,assert_res=assert_res,**kwargs)\n",
+                "  File \"/Users/liweichao/workspace/interface_test/interface/test_case/cn/haoxinqing/dapi_hao_xin_qing.py\", line 32, in test\n    self.assertEqual(True,a.assert_res,a.assert_msg)\n",
+                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
+                "  File \"/Users/liweichao/anaconda3/envs/tensorflow/lib/python3.6/unittest/case.py\", line 822, in _baseAssertEqual\n    raise self.failureException(msg)\n",
+                "AssertionError: True != False : 操作符:&,断言key:success,期望属性值:不为空,实际值:None\n"
             ]
         }
     ],
     "testName": "自动化测试报告",
     "testAll": 1,
     "testFail": 1,
-    "beginTime": "2020-08-14 14:25:01",
-    "totalTime": "60s",
+    "beginTime": "2020-08-15 23:29:41",
+    "totalTime": "0s",
     "testSkip": 0,
     "testError": 0
 };

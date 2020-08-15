@@ -8,21 +8,21 @@ class HttpUtils:
         global host, port, timeout
         host = None
         try:
-            host = localReadConfig.get_http("%s_base_url"%(model))
+            host = localReadConfig.get_http(model)
         except Exception :
             host = localReadConfig.get_http("default_base_url")
 
         port = None
 
         try:
-            port = localReadConfig.get_http("%s_port"%(model))
+            port = localReadConfig.get_port(model)
         except Exception :
-            port = localReadConfig.get_http("default_port")
+            port = localReadConfig.get_port("default_port")
         timeout = None
         try:
-            timeout = localReadConfig.get_http("%s_timeout"%(model))
+            timeout = localReadConfig.get_time_out(model)
         except Exception :
-            timeout = localReadConfig.get_http("default_timeout")
+            timeout = localReadConfig.get_time_out("default_timeout")
         self.log = Log.get_log()
         self.logger = self.log.get_logger()
         self.__headers = {}
@@ -39,7 +39,7 @@ class HttpUtils:
         if port is None or port is '':
             self.__url = host  + url
         else:
-            self.__url = host + ":" + port + url
+            self.__url = host + ":" + str(port) + url
     @property
     def headers(self):
         return self.__headers
@@ -81,6 +81,7 @@ class HttpUtils:
             response = requests.post(self.__url, headers=self.__headers, json=self.__params, timeout=float(timeout))
             # response.raise_for_status()
             return response
-        except TimeoutError as te:
+        except Exception as te:
+            self.logger.exception(te,exc_info=True)
             self.logger.error("Time out!")
             return None
