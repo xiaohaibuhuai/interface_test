@@ -1,7 +1,6 @@
 import requests
 import readConfig as readConfig
 from common.log import MyLog as Log
-from scrapy import Request
 localReadConfig = readConfig.ReadConfig()
 
 class HttpUtils:
