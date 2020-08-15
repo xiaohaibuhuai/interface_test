@@ -5,5 +5,5 @@ setup(
     author='Li Wei Chao',
     author_email='a814900359@126.com',
     url='http://www.you.com/projectname',
-    packages=['common'],
+    packages=['common','test_case/*'],
 )
