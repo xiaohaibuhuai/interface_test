@@ -1,0 +1,108 @@
+[
+  {
+    "method_name":"登录","api":"/papi/common/config","method":"post","description":"测试登录",
+    "skip": true,
+    "assert":{
+          "code": 1,
+          "assert_code": ["&","int","=",1000],
+          "result":{
+              "personalDoctorServiceList":[
+                {
+                  "parentCode":"personalDoctorService",
+                  "assert_parentCode":["&","str","=","personalDoctorService"]
+                }
+              ],
+              "assert_personalDoctorServiceList":["&","list","?","?"]
+          },
+          "assert_result":["&","dict","?","?"]
+
+    },
+    "param": {"username":"testJwAdmin","password": "jd100"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "papi.haoxinqing.cn",
+      "Origin":"http://papi.haoxinqing.cn",
+      "Referer":"http://papi.haoxinqing.cn"
+    }
+  },
+  {
+    "method_name":"快照","api":"/papi/user/snapshoot","method":"get","description":"测试登录",
+    "skip": true,
+    "assert":{
+          "code": 1,
+          "assert_code": ["&","int","=",1000],
+          "result":{},
+          "assert_result":["&","dict","?","?"]
+
+    },
+    "param": {"mobile": "13720050141"},
+    "header": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+    }
+  },
+  {
+    "method_name":"快照","api":"/papi/patient/list","method":"get","description":"测试登录",
+    "skip": true,
+    "assert":{
+          "code": 1,
+          "assert_code": ["&","int","=",1000],
+          "result":{},
+          "assert_result":["&","dict","?","?"]
+
+    },
+    "param": {"completionStatus": "2"},
+    "header": {
+      "uuToken": "43e053004673be7d383ca13168799d9f6446c4ae1affc4daf",
+      "userId": "12594402",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+    }
+  },
+  {
+    "method_name":"快照","api":"/papi/serviceOrder/getAiCount","method":"get","description":"AI分诊",
+    "skip":true,
+    "assert":{
+          "code": 1,
+          "assert_code": ["&","int","=",1000],
+          "result":{},
+          "assert_result":["&","dict","?","?"]
+
+    },
+    "param": {"patientId": "1000411"},
+    "header": {
+      "uuToken": "43e053004673be7d383ca13168799d9f6446c4ae1affc4daf",
+      "userId": "12594402",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+    }
+  },
+  {
+    "method_name":"快照","api":"/papi/advisoryRecordResult/cacheQuestionnaire","method":"post","description":"缓存问卷",
+    "skip":false,
+    "assert":{
+          "code": 1,
+          "assert_code": ["&","int","=",1000],
+          "result":{},
+          "assert_result":["&","dict","?","?"]
+
+    },
+    "param": {
+      "advisoryInquiryId": "101",
+      "patientId": "1012312",
+      "answer":[
+        {
+          "advisoryQuestionId": 12,
+          "advisoryAnswerId": "",
+          "answer": "",
+        }
+      ]
+    },
+    "header": {
+
+      "uuToken": "43e053004673be7d383ca13168799d9f6446c4ae1affc4daf",
+      "userId": "12594402",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+    }
+  }
+
+]
+

@@ -1,0 +1,194 @@
+[
+  {
+    "method_name":"教务登录","api":"/api/login","method":"post","description":"测试登录，吧啦吧啦吧啦，测试登录，吧啦吧啦吧啦",
+    "skip": false,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"username":"testJwAdmin","password": "jd100"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login"
+    }
+  },
+  {
+    "method_name":"初始化界面数据","api":"/api/initData","method":"get","description":"页面初始化数据",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"username":"testJwAdmin","password": "jd100"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"个人中心--修改密码","api":"/api/changePassword","method":"post","description":"个人中心--修改密码",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"oldPassword":"jd100","newPassword": "123456"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"学生导入详情--编辑导入的学生","api":"/api/editImportedStudent","method":"post","description":"学生导入详情--编辑导入的学生",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"id":"5f2cfc5ef7dad6fe0e96cfc3","studentNumber": "20200100","realName":"简简","mobile": "13355555555"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"学生导入详情--删除未激活","api":"/api/deleteUnregisteredStudents","method":"post","description":"学生导入详情--删除未激活",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"id":"5f2cfc5ef7dad6fe0e96cfc3","studentNumber": "20200100","realName":"简简","mobile": "13355555555"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-添加校长","api":"/api/addHeadmaster","method":"post","description":"信息维护-添加校长",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"realName":"阿飞","schoolId": "58ca38664de1b755d7f1797b","stage":"junior","mobile": "13355555555"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-编辑校长","api":"/api/modifyHeadmaster","method":"post","description":"信息维护-编辑校长",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"id":"校长生成后会有一个id","realName": "校长名","mobile": "13355555555"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-删除校长","api":"/api/deleteHeadmaster","method":"post","description":"信息维护-删除校长",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"id":"校长生成后会有一个id","stage": "junior"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-老师激活详情","api":"/api/getAllTeachers","method":"get","description":"信息维护-老师激活详情",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"schoolId":"58ca38664de1b755d7f1797b","ts": "1596786850141"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-老师激活详情--老师调班","api":"/api/getAllTeachers","method":"post","description":"信息维护-老师激活详情--老师调班",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"teacherId":"58ca38664de1b755d7f1797b","classId": [
+      "5f08220e2e548f550ffd6a89",
+      "5c49a5c3226590562e925c0a"
+      ],
+      "adminClass":["担任班主任班级id"]
+    },
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  },
+  {
+    "method_name":"信息维护-老师激活详情--老师调班","api":"/api/deleteTeacher","method":"post","description":"信息维护-老师激活详情--老师调班",
+    "skip": true,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"id": "5c414ef2976bb403440211d2"},
+    "header": {
+      "content-type":"application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+      "Host": "zktjw.jd100.com",
+      "Origin":"http://zktjw.jd100.com",
+      "Referer":"http://zktjw.jd100.com/login",
+      "Cookie":"et:sess:home=e4253a7319ee448ea60b5fc757faad13"
+    }
+  }
+
+]

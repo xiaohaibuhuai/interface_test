@@ -1,0 +1,38 @@
+[
+  {
+    "method_name":"配置","api":"/dapi/common/config","method":"get","description":"测试登录，吧啦吧啦吧啦，测试登录，吧啦吧啦吧啦",
+    "assert":{
+          "success": true,
+          "assert_success": ["?","bool","?",null],
+          "data": {
+            "students": [
+              {
+                "valid": true,
+                "registered": true,
+                "classId": "5c6e5bb276b2af4f0817ce48",
+                "studentNumber": "20190112",
+                "schoolName": "枞阳县白云中学",
+                "authType": "formal",
+                "packageType": "初中一年数理化家校版",
+                "dueDate": "2019-02-28T00:00:00.000Z",
+                "startYear": "2018",
+                "schoolId": "5c6e47d9beb6431630d601ea",
+                "stage": "senior",
+                "mobile": "1550732329949",
+                "realName": "李五柳",
+                "registeredAt": "2019-03-06T07:19:56.789Z",
+                "name": "devStu004",
+                "id": "5c7e456a3bfb097f3c7f4472"
+              }
+            ]
+
+          },
+          "assert_data": ["!","dict","?",null]
+    },
+    "param": {"username":"zhangsan","password": "adweqrerqer" },
+    "header": {}
+
+  }
+]
+
+"content-type":"application/json; charset=UTF-8",

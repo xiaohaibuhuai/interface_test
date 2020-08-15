@@ -1,0 +1,16 @@
+[
+  {
+    "method_name":"登录","api":"/dapi/common/config","method":"post","description":"测试登录",
+    "skip": false,
+    "assert":{
+          "success": true,
+          "assert_success": ["&","bool","=",true]
+    },
+    "param": {"username":"testJwAdmin","password": "jd100"},
+    "header": {
+      "ver": "4.21",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+
+    }
+  }
+]
