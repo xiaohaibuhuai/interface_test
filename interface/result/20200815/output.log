@@ -1,0 +1,98 @@
+2020-08-15 13:50:09,892 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/cn/haoxinqing/
+2020-08-15 13:50:09,893 - run.py[main,line:19] - INFO:  report_name:2020-08-15 13_50_09测试报告.html
+2020-08-15 13:50:09,894 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/cn/haoxinqing/
+2020-08-15 13:50:09,894 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 13:55:12,645 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/cn/haoxinqing/
+2020-08-15 13:55:12,649 - run.py[main,line:19] - INFO:  report_name:2020-08-15 13_55_12测试报告.html
+2020-08-15 13:55:12,649 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/cn/haoxinqing/
+2020-08-15 13:55:12,650 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 14:20:52,407 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/cn/haoxinqing/
+2020-08-15 14:20:52,408 - run.py[main,line:19] - INFO:  report_name:2020-08-15 14_20_52测试报告.html
+2020-08-15 14:20:52,408 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/cn/haoxinqing/
+2020-08-15 14:20:52,408 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 15:49:00,107 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 15:49:00,199 - run.py[main,line:19] - INFO:  report_name:2020-08-15 15_49_00测试报告.html
+2020-08-15 15:49:00,201 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/com/jd100/zktjw
+2020-08-15 15:49:00,202 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 15:50:32,227 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 15:50:32,248 - run.py[main,line:19] - INFO:  report_name:2020-08-15 15_50_32测试报告.html
+2020-08-15 15:50:32,249 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/com/jd100/zktjw
+2020-08-15 15:50:32,249 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 15:51:07,505 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 15:55:14,824 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 15:55:14,840 - run.py[main,line:19] - INFO:  report_name:2020-08-15 15_55_14测试报告.html
+2020-08-15 15:55:14,840 - run.py[main,line:24] - INFO:  report_path:D:\interface_test\interface/result/com/jd100/zktjw
+2020-08-15 15:55:14,840 - run.py[main,line:26] - INFO:  desription:自动化测试报告
+2020-08-15 17:01:25,440 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 17:04:44,668 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 17:05:06,690 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 17:05:07,566 - readConfig.py[get_case,line:55] - ERROR:  No option 'jan_dan_xue_xi' in section: 'CASE_PATH'
+Traceback (most recent call last):
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\configparser.py", line 789, in get
+    value = d[option]
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\collections\__init__.py", line 898, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\collections\__init__.py", line 890, in __missing__
+    raise KeyError(key)
+KeyError: 'jan_dan_xue_xi'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\interface_test\interface\readConfig.py", line 53, in get_case
+    value = self.cf.get("CASE_PATH", name)
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\configparser.py", line 792, in get
+    raise NoOptionError(option, section)
+configparser.NoOptionError: No option 'jan_dan_xue_xi' in section: 'CASE_PATH'
+2020-08-15 17:05:07,597 - common.py[wrapper,line:145] - ERROR:  tuple index out of range
+Traceback (most recent call last):
+  File "D:\interface_test\interface\common\common.py", line 132, in wrapper
+    kwargs = args[0].to_dict()
+IndexError: tuple index out of range
+2020-08-15 17:12:17,099 - run.py[main,line:12] - INFO:  case_path:D:\interface_test\interface/test_case/com/jd100/zktjw
+2020-08-15 17:12:18,187 - readConfig.py[get_case,line:55] - ERROR:  No option 'jan_dan_xue_xi' in section: 'CASE_PATH'
+Traceback (most recent call last):
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\configparser.py", line 789, in get
+    value = d[option]
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\collections\__init__.py", line 898, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\collections\__init__.py", line 890, in __missing__
+    raise KeyError(key)
+KeyError: 'jan_dan_xue_xi'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\interface_test\interface\readConfig.py", line 53, in get_case
+    value = self.cf.get("CASE_PATH", name)
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\configparser.py", line 792, in get
+    raise NoOptionError(option, section)
+configparser.NoOptionError: No option 'jan_dan_xue_xi' in section: 'CASE_PATH'
+2020-08-15 17:12:18,405 - common.py[wrapper,line:136] - INFO:  api:http://zktjw.jd100.com:8080/api/login
+2020-08-15 17:12:32,988 - common.py[wrapper,line:145] - ERROR:  Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "D:\interface_test\interface\common\common.py", line 142, in wrapper
+    res = res.json()
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\site-packages\requests\models.py", line 889, in json
+    return complexjson.loads(
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\zhangting\AppData\Local\Programs\Python\Python38-32\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-08-15 17:12:33,058 - common.py[__init__,line:186] - INFO:  assert_key:   status_code
+2020-08-15 17:12:33,058 - common.py[__init__,line:193] - INFO:  assert_value: 502
+2020-08-15 17:12:33,059 - common.py[__init__,line:186] - INFO:  assert_key:   res
+2020-08-15 17:12:33,059 - common.py[__init__,line:193] - INFO:  assert_value: None
+2020-08-15 17:12:33,060 - common.py[__init__,line:186] - INFO:  assert_key:   success
+2020-08-15 17:12:33,061 - common.py[__init__,line:193] - INFO:  assert_value: None
+2020-08-15 17:12:33,061 - jan_dan_xue_xi.py[test,line:26] - INFO:  None
+2020-08-15 17:12:33,062 - jan_dan_xue_xi.py[test,line:27] - INFO:  {'method_name': '教务登录', 'api': '/api/login', 'method': 'post', 'description': '测试登录，吧啦吧啦吧啦，测试登录，吧啦吧啦吧啦', 'skip': False, 'assert': {'success': True, 'assert_success': ['&', 'bool', '=', True]}, 'param': {'username': 'testJwAdmin', 'password': 'jd100'}, 'header': {'content-type': 'application/json; charset=UTF-8', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36', 'Host': 'zktjw.jd100.com', 'Origin': 'http://zktjw.jd100.com', 'Referer': 'http://zktjw.jd100.com/login'}}
+2020-08-15 17:12:33,074 - jan_dan_xue_xi.py[test,line:32] - INFO:  True
+2020-08-15 17:12:33,075 - jan_dan_xue_xi.py[test,line:33] - INFO:  操作符:&,断言key:status_code,期望属性值:不为空,实际值:502
+2020-08-15 17:12:33,076 - jan_dan_xue_xi.py[test,line:32] - INFO:  True
+2020-08-15 17:12:33,077 - jan_dan_xue_xi.py[test,line:33] - INFO:  操作符:int,断言key:status_code,期望类型:Int,实际类型:<class 'int'>
+2020-08-15 17:12:33,077 - jan_dan_xue_xi.py[test,line:32] - INFO:  False
+2020-08-15 17:12:33,078 - jan_dan_xue_xi.py[test,line:33] - INFO:  操作符:=,断言key:status_code,期望值:200,实际值:502

@@ -12,6 +12,7 @@ import os
 import re
 from enum import Enum, unique
 from functools import wraps
+from common.common import get_json, get_csv, get_xls
 
 try:
     import yaml
@@ -26,12 +27,11 @@ __version__ = '1.4.1'
 # They are added to the decorated test method and processed later
 # by the `ddt` class decorator.
 
-DATA_ATTR = '%values'              # store the data the test must run with
-FILE_ATTR = '%file_path'           # store the path to JSON file
+DATA_ATTR = '%values'  # store the data the test must run with
+FILE_ATTR = '%file_path'  # store the path to JSON file
 YAML_LOADER_ATTR = '%yaml_loader'  # store custom yaml loader for serialization
-UNPACK_ATTR = '%unpack'            # remember that we have to unpack values
-index_len = 5                      # default max length of case index
-
+UNPACK_ATTR = '%unpack'  # remember that we have to unpack values
+index_len = 5  # default max length of case index
 
 try:
     trivial_types = (type(None), bool, int, float, basestring)
@@ -102,9 +102,11 @@ def idata(iterable):
     Should be added to methods of instances of ``unittest.TestCase``.
 
     """
+
     def wrapper(func):
         setattr(func, DATA_ATTR, iterable)
         return func
+
     return wrapper
 
 
@@ -130,11 +132,13 @@ def file_data(value, yaml_loader=None):
     The default is ``None``, which results in using the ``yaml.safe_load``
     method.
     """
+
     def wrapper(func):
         setattr(func, FILE_ATTR, value)
         if yaml_loader:
             setattr(func, YAML_LOADER_ATTR, yaml_loader)
         return func
+
     return wrapper
 
 
@@ -177,9 +181,11 @@ def feed_data(func, new_name, test_data_docstring, *args, **kwargs):
     This internal method decorator feeds the test data item to the test.
 
     """
+
     @wraps(func)
     def wrapper(self):
         return func(self, *args, **kwargs)
+
     wrapper.__name__ = new_name
     wrapper.__wrapped__ = func
     # set docstring if exists
@@ -208,10 +214,10 @@ def add_test(cls, test_name, test_docstring, func, *args, **kwargs):
 
     """
     setattr(cls, test_name, feed_data(func, test_name, test_docstring,
-            *args, **kwargs))
+                                      *args, **kwargs))
 
 
-def process_file_data(cls, name, func, file_attr):
+def process_file_data(cls, name, func, file_attr, model='$json'):
     """
     Process the parameter in the `file_data` decorator.
     """
@@ -221,6 +227,7 @@ def process_file_data(cls, name, func, file_attr):
     def create_error_func(message):  # pylint: disable-msg=W0613
         def func(*args):
             raise ValueError(message % file_attr)
+
         return func
 
     # If file does not exist, provide an error function instead
@@ -245,19 +252,33 @@ def process_file_data(cls, name, func, file_attr):
             None
         )
         return
-
-    with codecs.open(data_file_path, 'r', 'utf-8') as f:
-        # Load the data from YAML or JSON
-        if _is_yaml_file:
-            if hasattr(func, YAML_LOADER_ATTR):
-                yaml_loader = getattr(func, YAML_LOADER_ATTR)
-                data = yaml.load(f, Loader=yaml_loader)
+    if model in '$json' or _is_yaml_file:
+        with codecs.open(data_file_path, 'r', 'utf-8') as f:
+            # Load the data from YAML or JSON
+            if _is_yaml_file:
+                if hasattr(func, YAML_LOADER_ATTR):
+                    yaml_loader = getattr(func, YAML_LOADER_ATTR)
+                    data = yaml.load(f, Loader=yaml_loader)
+                else:
+                    data = yaml.safe_load(f)
             else:
-                data = yaml.safe_load(f)
-        else:
-            data = json.load(f)
-
-    _add_tests_from_data(cls, name, func, data)
+                data = json.load(f)
+    elif model in '$df':
+        excel = data_file_path.endswith((".xls", ".xlsx"))
+        if excel:
+            data = get_xls(data_file_path)
+        csv = data_file_path.endswith((".csv"))
+        if csv:
+            data = get_csv(data_file_path)
+        _json = data_file_path.endswith((".json"))
+        if _json:
+            data = get_json(data_file_path)
+    else:
+        raise TypeError('文件不能处理')
+    if model in '$df':
+        _add_tests_from_dfdata(cls, name, func, data)
+    else:
+        _add_tests_from_data(cls, name, func, data)
 
 
 def _add_tests_from_data(cls, name, func, data):
@@ -275,6 +296,23 @@ def _add_tests_from_data(cls, name, func, data):
             add_test(cls, test_name, test_name, func, **value)
         else:
             add_test(cls, test_name, test_name, func, value)
+
+
+def _add_tests_from_dfdata(cls, name, func, data):
+    """
+    Add tests from data loaded from the data file into the class
+    """
+    row, col = data.shape
+    for _row in data.index.to_list():
+
+        value = data.loc[_row,]
+        key = data.loc[_row, 'method_name']
+        test_name = mk_test_name(name, key, _row)
+        test_name_desc = data.loc[_row, 'description']
+        if isinstance(value, dict):
+            add_test(cls, test_name, test_name_desc, func, **value)
+        else:
+            add_test(cls, test_name, test_name_desc, func, value)
 
 
 def _is_primitive(obj):
@@ -328,6 +366,7 @@ def ddt(arg=None, **kwargs):
 
     """
     fmt_test_name = kwargs.get("testNameFormat", TestNameFormat.DEFAULT)
+    model = kwargs.get('model')
 
     def wrapper(cls):
         for name, func in list(cls.__dict__.items()):
@@ -363,7 +402,7 @@ def ddt(arg=None, **kwargs):
                 delattr(cls, name)
             elif hasattr(func, FILE_ATTR):
                 file_attr = getattr(func, FILE_ATTR)
-                process_file_data(cls, name, func, file_attr)
+                process_file_data(cls, name, func, file_attr, model)
                 delattr(cls, name)
         return cls
 
